@@ -3,140 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oscar DevHub Portfolio</title>
-    <link rel="stylesheet" href="styles.css"/>
+    <title>Oscar Mbah | Full-Stack Web Developer</title>
+    <meta name="description" content="Portfolio of Oscar Mbah, a full-stack web developer building clean, fast, responsive websites and web apps.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
+    <header class="nav">
+        <a class="brand" href="#home">Oscar DevHub</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Toggle menu" aria-expanded="false">Menu</button>
+        <nav id="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
         </nav>
-    </header>
+    <button class="theme-btn" id="theme-btn" aria-label="Switch theme">Light mode</button>
+   </header>
 
     <main>
 
-        <section id="home">
-            <h1>Oscar DevHub</h1>
-            <h2>Business Administration and Management Student & Frontend Web Developer</h2>
-
-            <p>
-                I build clean, responsive websites and I'm continuously learning modern web development.
-            </p>
-
-            <a href="#projects">View My Work</a>
+        <section id="home" class="hero">
+            <div class="hero-text">
+                <h1>I build clean, responsive websites.</h1>
+                <p class="typed-line">I work with <span id="typed"></span><span class="cursor" aria-hidden="true">|</span></p>
+                <p>I'm Oscar, a full-stack developer and Business Administration student. I combine business thinking with code to build sites and web apps that are useful, not just pretty.</p>
+                <div class="actions">
+                    <a class="btn primary" href="#projects">View my work</a>
+                    <a class="btn" href="#contact">Contact me</a>
+                </div>
+            </div>
+            <pre class="code-card" aria-label="Summary of Oscar's profile"><code><span class="k">const</span> oscar = {
+  role: <span class="s">"Full-Stack Developer"</span>,
+  stack: [<span class="s">"HTML"</span>, <span class="s">"CSS"</span>, <span class="s">"JavaScript"</span>],
+  openToWork: <span class="k">true</span>,
+  remote: <span class="k">true</span>,
+};</code></pre>
         </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-
-            <p>
-                Hello! I'm Oscar, a Business Administration and Management student with a growing passion for web development.
-            </p>
-
-            <p>
-                I enjoy building simple and responsive websites using HTML and CSS, and I am currently learning JavaScript to improve my skills.
-            </p>
-
-            <p>
-                My goal is to combine business knowledge with technology to create useful digital solutions.
-            </p>
+        <section id="about" class="about">
+            <h2>About me</h2>
+            <p>I started with HTML and CSS and fell in love with turning an idea into something people can open on their phone. Every project since has taught me something new about how the web really works.</p>
+            <p>I'm studying Business Administration and Management, and it gives me a different lens on development. Before I write a line of code, I ask who the website is for, what it needs to achieve, and whether it will earn its place for the person who owns it.</p>
+            <p>Today I'm growing across the full stack with JavaScript, React, Node.js, and MongoDB, so I can take a product from first sketch to working database.</p>
+            <p>I'm open to remote and international opportunities, freelance and full-time, on frontend or backend work. If you have something in mind, get in touch.</p>
         </section>
 
         <section id="skills">
             <h2>Skills</h2>
-
-            <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>Responsive Web Design</li>
-                <li>Flexbox</li>
-                <li>CSS Grid</li>
-                <li>Basic JavaScript (Learning)</li>
-                <li>Git & GitHub (Learning)</li>
-                <li>Problem Solving</li>
-                <li>Business Administration & Management</li>
-            </ul>
+            <h3>Frontend</h3>
+            <div class="tags big">
+                <span>HTML5</span><span>CSS3</span><span>Flexbox</span><span>CSS Grid</span><span>Responsive design</span><span>JavaScript</span><span>React</span>
+            </div>
+            <h3>Backend and tools</h3>
+            <div class="tags big">
+                <span>Node.js</span><span>MongoDB</span><span>REST APIs</span><span>Authentication</span><span>Git and GitHub</span><span>Vercel</span><span>Render</span>
+            </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
             <div class="projects-container">
-            <article class="project">
-                <h3>Personal Portfolio Website</h3>
-                <p>
-                    A responsive portfolio website built with HTML and CSS to showcase my skills, projects, and contact information.
-                </p>
-                <a href="#" class="project-btn">View Project</a>
-            </article>
 
-            <article class="project">
-                <h3>Survey Form</h3>
-                <p>
-                    A simple and responsive survey form built using HTML and CSS for collecting user information.
-                </p>
-                <a href="https://oscarmbahdevhub.github.io/Survey-form/" class="project-btn" target="_blank">View Project</a>
-            </article>
+                <article class="project">
+                    <img class="shot" src="images/portfolio.png" alt="Oscar DevHub portfolio homepage" width="1280" height="720" loading="lazy">
+                    <h3>Personal portfolio</h3>
+                    <p>The site you're on. A responsive portfolio showcasing my skills and projects.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <div class="links">
+                        <a href="https://github.com/OscarmbahDevHub/Portfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </article>
 
-            <article class="project">
-                <h3>Product Landing Page</h3>
-                <p>
-                    A modern landing page designed to promote a product with a clean layout and responsive design.
-                </p>
-                <a href="https://oscarmbahdevhub.github.io/Landing-page/" target="_blank" class="project-btn">View Project</a>
-            </article>
+                <article class="project">
+                    <img class="shot" src="images/survey-form.png" alt="Responsive survey form with input fields" width="1280" height="720" loading="lazy">
+                    <h3>Survey form</h3>
+                    <p>A responsive survey form for collecting user information.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <div class="links">
+                        <a href="https://oscarmbahdevhub.github.io/Survey-form/" target="_blank" rel="noopener noreferrer">Live demo</a>
+                        <a href="https://github.com/OscarmbahDevHub/Survey-form" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </article>
 
-            <article class="project">
-  <h3>Travel Guide Documentation Page</h3>
-  <p>
-    A responsive travel guide documentation website built with HTML and CSS. 
-    It demonstrates sidebar navigation, structured content sections, smooth scrolling, and mobile responsiveness.
-  </p>
-  <a href="https://oscarmbahdevhub.github.io/travel-guide-documentation/" target="_blank" class="project-btn">
-    View Live Project
-  </a>
-</article>
+                <article class="project">
+                    <img class="shot" src="images/landing-page.png" alt="Product landing page with hero section" width="1280" height="720" loading="lazy">
+                    <h3>Product landing page</h3>
+                    <p>A clean landing page that promotes a product with a responsive layout.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <div class="links">
+                        <a href="https://oscarmbahdevhub.github.io/Landing-page/" target="_blank" rel="noopener noreferrer">Live demo</a>
+                        <a href="https://github.com/OscarmbahDevHub/Landing-page" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </article>
+
+                <article class="project">
+                    <img class="shot" src="images/travel-guide.png" alt="Travel guide documentation page with sidebar navigation" width="1280" height="720" loading="lazy">
+                    <h3>Travel guide documentation</h3>
+                    <p>A documentation site with sidebar navigation, smooth scrolling, and mobile support.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <div class="links">
+                        <a href="https://oscarmbahdevhub.github.io/travel-guide-documentation/" target="_blank" rel="noopener noreferrer">Live demo</a>
+                        <a href="https://github.com/OscarmbahDevHub/travel-guide-documentation" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </article>
+
+                <article class="project">
+                     <img class="shot" src="images/shopmate.png" alt="ShopMate storefront showing product categories" width="1280" height="720" loading="lazy">
+                     <h3>ShopMate e-commerce</h3>
+                     <p>A full-stack, responsive e-commerce app with a React frontend on Vercel and a Node.js and MongoDB backend on Render. Visitors can browse by category and save items to a wishlist, then register and log in to place orders and track them in their order history. A separate admin dashboard lets me manage orders (pending to processing), add products and update stock, and view registered users.</p>
+                     <div class="tags"><span>React</span><span>Node.js</span><span>MongoDB</span><span>Authentication</span><span>Vercel</span><span>Render</span></div>
+                     <div class="links">
+                        <a href="https://shopmate-ecommerce.vercel.app/" target="_blank" rel="noopener noreferrer">Live demo</a>
+                        <a href="https://github.com/OscarmbahDevHub/shopmate-ecommerce" target="_blank" rel="noopener noreferrer">GitHub</a>
+                     </div>
+               </article>
+
             </div>
         </section>
 
         <section id="contact">
             <h2>Contact</h2>
-
-            <p>
-                Feel free to reach out if you want to collaborate, hire me, or just say hello.
-            </p>
-
-            <p>
-                Email:
-                <a href="mailto:oscarmbah790@gmail.com">
-                    oscarmbah790@gmail.com
-                </a>
-            </p>
-
-            <p>
-                GitHub:
-                <a href="https://github.com/OscarmbahDevHub" target="_blank" rel="noopener noreferrer">
-                    My GitHub
-                </a>
-            </p>
-
-            <p>
-                X (Twitter):
-                <a href="https://x.com/OscarDevHub" target="_blank" rel="noopener noreferrer">
-                    My Twitter
-                </a>
+            <p>Want to hire me, collaborate, or just say hello? Send a message.</p>
+            <form id="contact-form">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" maxlength="100" required>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" maxlength="200" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" maxlength="2000" required></textarea>
+            <input class="hp" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn primary" type="submit">Send message</button>
+            <p id="form-status" role="status"></p>
+            </form>
+            <p class="find">
+                <a href="https://github.com/OscarmbahDevHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://x.com/OscarDevHub" target="_blank" rel="noopener noreferrer">X</a>
+                <a href="mailto:oscarmbah790@gmail.com">Email</a>
             </p>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 Oscar DevHub. All rights reserved.</p>
+        <p>&copy; 2026 Oscar Mbah. All rights reserved.</p>
+        <a class="admin-link" href="admin.html">Admin</a>
     </footer>
 
+   <script src="script.js"></script>
+   <script type="module" src="contact.js"></script>
 </body>
 </html>

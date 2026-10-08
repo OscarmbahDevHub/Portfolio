@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin | Oscar DevHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem; }
+        .admin-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+        .admin-top h1 { font-size: 1.8rem; }
+        .msg { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 1rem; }
+        .msg.unread { border-color: var(--accent); }
+        .msg-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.25rem 1rem; font-weight: 500; }
+        .msg-meta { color: var(--muted); font-size: 0.9rem; }
+        .msg-body { margin: 0.75rem 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+        .msg-actions { display: flex; gap: 0.75rem; }
+        .msg-actions .btn { padding: 0.4rem 0.9rem; font-size: 0.9rem; }
+        .badge { color: var(--accent); font-size: 0.85rem; }
+        .hidden { display: none; }
+        .empty { color: var(--muted); }
+    </style>
+</head>
+<body>
+    <main class="admin">
+
+        <section id="login-view" class="hidden">
+            <h1>Admin login</h1>
+            <p><a href="index.html">Back to site</a></p>
+            <form id="login-form">
+                <label for="email">Email</label>
+                <input id="email" type="email" autocomplete="username" required>
+                <label for="password">Password</label>
+                <input id="password" type="password" autocomplete="current-password" required>
+                <button class="btn primary" type="submit">Log in</button>
+                <p id="login-status" role="status"></p>
+            </form>
+        </section>
+
+        <section id="inbox-view" class="hidden">
+            <div class="admin-top">
+                <h1>Inbox <span id="count" class="badge"></span></h1>
+                <a href="index.html">Back to site</a>
+                <button class="btn" id="logout-btn" type="button">Log out</button>
+            </div>
+            <div id="messages"></div>
+        </section>
+
+    </main>
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
