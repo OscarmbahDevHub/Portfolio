@@ -21,7 +21,10 @@ const loginForm = document.getElementById('login-form');
 const loginStatus = document.getElementById('login-status');
 const list = document.getElementById('messages');
 const count = document.getElementById('count');
+const searchBox = document.getElementById('search');
+const filterBox = document.getElementById('filter');
 let stopListening = null;
+let allMessages = [];
 
 loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -47,30 +50,44 @@ onAuthStateChanged(auth, (user) => {
         inboxView.classList.add('hidden');
         loginView.classList.remove('hidden');
         list.textContent = '';
+        allMessages = [];
     }
 });
 
 function listen() {
     const q = query(collection(db, 'messages'), orderBy('createdAt', 'desc'));
     stopListening = onSnapshot(q, (snapshot) => {
-        list.textContent = '';
-        let unread = 0;
-        if (snapshot.empty) {
-            const p = document.createElement('p');
-            p.className = 'empty';
-            p.textContent = 'No messages yet.';
-            list.appendChild(p);
-        }
-        snapshot.forEach((d) => {
-            const data = d.data();
-            if (!data.read) unread++;
-            list.appendChild(renderMessage(d.id, data));
-        });
+        allMessages = snapshot.docs.map(d => ({ id: d.id, data: d.data() }));
+        const unread = allMessages.filter(m => !m.data.read).length;
         count.textContent = unread ? '(' + unread + ' new)' : '';
+        draw();
     }, () => {
         list.textContent = 'You do not have permission to view messages.';
     });
 }
+
+function draw() {
+    const term = searchBox.value.trim().toLowerCase();
+    const mode = filterBox.value;
+    list.textContent = '';
+    const shown = allMessages.filter(({ data }) => {
+        if (mode === 'unread' && data.read) return false;
+        if (mode === 'read' && !data.read) return false;
+        if (!term) return true;
+        return (data.name + ' ' + data.email + ' ' + data.message).toLowerCase().includes(term);
+    });
+    if (!shown.length) {
+        const p = document.createElement('p');
+        p.className = 'empty';
+        p.textContent = allMessages.length ? 'No messages match.' : 'No messages yet.';
+        list.appendChild(p);
+        return;
+    }
+    shown.forEach(({ id, data }) => list.appendChild(renderMessage(id, data)));
+}
+
+searchBox.addEventListener('input', draw);
+filterBox.addEventListener('change', draw);
 
 function renderMessage(id, data) {
     const card = document.createElement('article');
